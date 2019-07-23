@@ -42,6 +42,12 @@ const handlePublic = (request,response)=>{
             }
         })
 }
+
+
+const handleJsonFile = (res)=>{
+    res.writeHead(200, {'content-type': 'application/json'});
+    res.end(JSON.stringify(rgb));
+}
 const handleNotFound = (response)=>
 {
     response.writeHead(404);
@@ -50,5 +56,6 @@ const handleNotFound = (response)=>
 module.exports={
      handlerHomeRoute,
      handlePublic,
-     handleNotFound
+     handleNotFound,
+     handleJsonFile
 }
