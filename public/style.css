@@ -1,6 +1,6 @@
 * { box-sizing: border-box; }
 body {
-  background: linear-gradient(to bottom, black 0%,black 50%,#000000 50%,white 50%,white 100%);
+  background: linear-gradient(to bottom, rgb(16, 226, 226) 0%,rgb(8, 105, 89) 50%,#05283f 50%,rgb(9, 59, 71) 50%,rgb(91, 137, 168) 100%);
   
   font: 16px Arial; 
   display: flex;
@@ -16,7 +16,7 @@ body {
 }
 .title-design{
   font-family: Impact;
-  color: rgb(56, 28, 17)
+  color: rgb(165, 241, 235)
 }
 input {
   border: 1px solid transparent;
@@ -25,12 +25,13 @@ input {
   font-size: 16px;
 }
 input[type=text] {
+  border-color: hsl(231, 76%, 50%);;
   background-color: #f1f1f1;
   width: 100%;
 }
 input[type=button] {
-  background-color: DodgerBlue;
-  color: #fff;
+  background-color: rgb(69, 139, 106);
+  color: linear-gradient(to bottom, rgb(16, 226, 226) 0%,rgb(8, 105, 89) 50%,#05283f 50%,rgb(9, 59, 71) 50%,rgb(91, 137, 168) 100%);
 }
 .autocomplete-items {
   position: absolute;

@@ -53,18 +53,44 @@ fetch('/rgb').then ((res)=>{
 
     autocomplete(document.getElementById("myInput"), colors);
     document.getElementById("submit").addEventListener("click", function (e) {
-      document.getElementById("result").style.background= 'rgb' +backgroundRGBColor[findRGB(document.getElementById("myInput").value)];
+      if(document.getElementById("myInput").value === "")
+      {
+        inputError = "Please enter some value!";
+        document.getElementById("input_error").style.color="red"; 
+        document.getElementById("input_error").innerHTML = inputError;
+      }
+      else
+      {
+        document.getElementById("result").style.background= 'rgb' +backgroundRGBColor[findRGB(document.getElementById("myInput").value)];
+      }
     });
 })
 
-function findRGB(name){
- return colors.reduce(function(acc,curr,index){
-    if(curr == name)
+function findRGB(color){
+ const indexOfColor = colors.reduce(function(acc,curr,index){
+    if(curr === color)
     {
-      acc= index;
+      acc = index;
+    }
+    else
+    {
+      if(acc>-1){
+        return acc
+      }
+    
+     acc = -1
     }
     return acc;
-  },0)
+  })
+  if(indexOfColor<0){
+    inputError = "color not found!";
+    document.getElementById("input_error").style.color="red"; 
+    document.getElementById("input_error").innerHTML = inputError;
+  }else{
+    return indexOfColor
+  }
+
+  
 
 }
 
