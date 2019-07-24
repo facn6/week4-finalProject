@@ -6,7 +6,7 @@ const router = (request, response) => {
     {
         handlers.handlerHomeRoute(request,response);
     }
-    else if(url.indexOf('public') !== -1){
+    else if(url.indexOf('.') !== -1){
         handlers.handlePublic(request,response);
     }
     else{
