@@ -1,13 +1,22 @@
 * { box-sizing: border-box; }
 body {
+  background: linear-gradient(to bottom, black 0%,black 50%,#000000 50%,white 50%,white 100%);
+  
   font: 16px Arial; 
-  flex:
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
 }
+
 .autocomplete {
-  /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
+  
 
+}
+.title-design{
+  font-family: Impact;
+  color: rgb(56, 28, 17)
 }
 input {
   border: 1px solid transparent;
@@ -29,7 +38,6 @@ input[type=button] {
   border-bottom: none;
   border-top: none;
   z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
   left: 0;
   right: 0;

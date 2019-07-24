@@ -3,7 +3,7 @@ const path =require("path");
 const rgb = require('./rgb.json');
 
 
-const handlerHomeRoute = (request , response)=>{
+const handlerHomeRoute = (request,response)=>{
     const filepath = path.join(__dirname, '..' , 'public' , 'index.html');
     fs.readFile(filepath, (error,file)=>{
         if(error)
