@@ -10,29 +10,20 @@ function autocomplete(inp, colorArr) {
         closeAllLists();
         if (!val) { return false;}
           currentFocus = -1;
-          /*create a DIV element that will contain the items (values):*/
           a = document.createElement("DIV");
           a.setAttribute("id", this.id + "autocomplete-list");
           a.setAttribute("class", "autocomplete-items");
-          /*append the DIV element as a child of the autocomplete container:*/
           this.parentNode.appendChild(a);
-        /*for each item in the array...*/
         for (i = 0; i < colorArr.length; i++) {
-          /*check if the item starts with the same letters as the text field value:*/
           if (colorArr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-            /*create a DIV element for each matching element:*/
             b = document.createElement("DIV");
-            /*make the matching letters bold:*/
             b.innerHTML = "<strong>" + colorArr[i].substr(0, val.length) + "</strong>";
             b.innerHTML += colorArr[i].substr(val.length);
-            /*insert a input field that will hold the current array item's value:*/
             b.innerHTML += "<input type='hidden' value='" + colorArr[i] + "'>";
-            /*execute a function when someone clicks on the item value (DIV element):*/
             b.addEventListener("click", function(e) {
-            /*insert the value for the autocomplete text field:*/
+
             inp.value = this.getElementsByTagName("input")[0].value;
-            /*close the list of autocompleted values,
-            (or any other open lists of autocompleted values:*/
+   
             closeAllLists();
             });
             a.appendChild(b);
@@ -51,9 +42,6 @@ function autocomplete(inp, colorArr) {
 
   }
 
-  function searchResult(color){
-
-  }
 fetch('/rgb').then ((res)=>{
     return res.json();
 }).then((data)=>{
@@ -65,7 +53,7 @@ fetch('/rgb').then ((res)=>{
 
     autocomplete(document.getElementById("myInput"), colors);
     document.getElementById("submit").addEventListener("click", function (e) {
-      document.getElementById("result").style.backgroundColor= 'rgb' +backgroundRGBColor[findRGB(document.getElementById("myInput").value)];
+      document.getElementById("result").style.background= 'rgb' +backgroundRGBColor[findRGB(document.getElementById("myInput").value)];
     });
 })
 
