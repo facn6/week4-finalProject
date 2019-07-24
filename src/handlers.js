@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path =require("path");
+const rgb = require('./rgb.json');
 
 
 const handlerHomeRoute = (request , response)=>{
@@ -28,7 +29,7 @@ const handlePublic = (request,response)=>{
             js: 'application/javascript',
             ico: 'image/x-icon'
         }
-        const filepath = path.join(__dirname , '..' , url);
+        const filepath = path.join(__dirname , '..','public' , url);
         fs.readFile(filepath ,(error,file)=>{
             if(error)
             {
