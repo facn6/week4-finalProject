@@ -39,7 +39,6 @@ function autocomplete(inp, colorArr) {
       }
     }
   }
-
   }
 
 fetch('/rgb').then ((res)=>{
@@ -61,7 +60,10 @@ fetch('/rgb').then ((res)=>{
       }
       else
       {
-        document.getElementById("input_error").innerHTML = '';
+
+        inputError = "";
+        document.getElementById("input_error").style.color="red"; 
+        document.getElementById("input_error").innerHTML = inputError;
         document.getElementById("result").style.background= 'rgb' +backgroundRGBColor[findRGB(document.getElementById("myInput").value)];
       }
     });
@@ -84,6 +86,13 @@ function findRGB(color){
     return acc;
   })
   if(indexOfColor<0){
+    function closeAllList() {
+      var x = document.getElementsByClassName("autocomplete-items");
+      for (var i = 0; i < x.length; i++) {
+        x[i].parentNode.removeChild(x[i]);
+    }
+  }
+    closeAllList();
     inputError = "color not found!";
     document.getElementById("input_error").style.color="red"; 
     document.getElementById("input_error").innerHTML = inputError;
