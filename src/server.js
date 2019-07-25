@@ -13,4 +13,3 @@ server.listen(port);
 
 console.log('server running on: http://' + host + ':' + port);
 
-module.exports = server;
