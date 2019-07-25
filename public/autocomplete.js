@@ -52,26 +52,6 @@ fetch('/rgb').then ((res)=>{
 
     autocomplete(document.getElementById("myInput"), colors);
     
-    
-    document.getElementById("myInput").addEventListener("click" , function(e){
- 
-
-        if(document.getElementById("myInput").value === "")
-        {
-          
-          inputError = "Please enter some value!";
-          document.getElementById("input_error").style.color="red"; 
-          document.getElementById("input_error").innerHTML = inputError;
-        }
-        else
-        {
-          inputError = "";
-          document.getElementById("input_error").style.color="red"; 
-          document.getElementById("input_error").innerHTML = inputError;
-          document.getElementById("result").style.background= 'rgb' +backgroundRGBColor[findRGB(document.getElementById("myInput").value)];
-        }
-      
-    })
     document.getElementById("submit").addEventListener("click", function (e) {
       
       if(document.getElementById("myInput").value === "")
