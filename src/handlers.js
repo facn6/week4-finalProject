@@ -18,15 +18,40 @@ const handlerHomeRoute = (request,response)=>{
         }
     });
 }
+const handlerHomeRouteJ = (request , response)=>{
+    const filepath = path.join(__dirname, '..' , 'public' , 'main.js');
+    fs.readFile(filepath, (error,file)=>{
+        if(error)
+        {
+            console.log(error);
+            response.writeHead(500, {"Content-type" : "application/javascript"});
+            response.end(`<h1> we have an error , sorry</h1>`);
+        }
+        else
+        {
+            response.writeHead(200 , {'Content-type' : 'application/javascript'});
+            response.end(file);
+        }
+    });
+}
 
 const handlePublic = (request,response)=>{
+
     const url =request.url;
+    
     const extention = url.split('.')[1];
         const extentionType = {
             html:'text/html',
             css: 'text/css',
             js: 'application/javascript',
-            ico: 'image/x-icon'
+            json: 'application/json'
+        }
+
+         if(extention === 'json'){
+            filepath = path.join(__dirname , '..', url);
+         }
+         else{
+        filepath = path.join(__dirname , '..','public' , url);
         }
         const filepath = path.join(__dirname , '..','public' , url);
         fs.readFile(filepath ,(error,file)=>{
@@ -34,10 +59,11 @@ const handlePublic = (request,response)=>{
             {
                 console.log(error);
                 response.writeHead(500 , {'Content-type' : extentionType.html});
-                response.end(`<h1>there is an error</h1>`);
+                response.end('<h1>there is an error</h1>');
             }
             else{
-                response.writeHead(200 , {'Content-type' : extentionType[extention]})
+                console.log(filepath)
+                response.writeHead(200 , {"Content-Type" : extentionType[extention]})
                 response.end(file);
             }
         })
@@ -57,5 +83,6 @@ module.exports={
      handlerHomeRoute,
      handlePublic,
      handleNotFound,
-     handleJsonFile
+     handleJsonFile,
+     handlerHomeRouteJ
 }
