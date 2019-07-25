@@ -1,8 +1,9 @@
 const fs = require("fs");
 const path =require("path");
+const rgb = require('./rgb.json');
 
 
-const handlerHomeRoute = (request , response)=>{
+const handlerHomeRoute = (request,response)=>{
     const filepath = path.join(__dirname, '..' , 'public' , 'index.html');
     fs.readFile(filepath, (error,file)=>{
         if(error)
@@ -38,7 +39,7 @@ const handlerHomeRouteJ = (request , response)=>{
 const handlePublic = (request,response)=>{
 
     const url =request.url;
-    var filepath;
+    
     const extention = url.split('.')[1];
         const extentionType = {
             html:'text/html',
@@ -53,7 +54,7 @@ const handlePublic = (request,response)=>{
          else{
         filepath = path.join(__dirname , '..','public' , url);
         }
-
+        const filepath = path.join(__dirname , '..','public' , url);
         fs.readFile(filepath ,(error,file)=>{
             if(error)
             {

@@ -7,13 +7,23 @@
         <link href="./style.css" rel="stylesheet">
         <title> Colors Lookup</title>
     </head>
- <body>
-        <div class="form-group">
+ <body id="result">
+  
+    <!--Make sure the form has the autocomplete function switched off:-->
+      <form autocomplete="off" >
+      <div class="autocomplete" style="width:300px;">
+        <h1 class="title-design"> find the color</h1>
+        <input id="myInput" type="text" name="myColor" placeholder="Color" required>
+      </div>
+      <input type="button" id="submit" value="submit"></button>
+      <span class="error"><p id="input_error"></p></span>
+      </form>
 
-                <input type="text" name="search" id="search" placeholder="Search Color" class="form-control form-control-lg" />
-        </div>
-        <div id="match-list"></div>            
+      <script src="./autocomplete.js"></script>
+    
  </body>
- <script  src = "./main.js"></script>
 
 </html>
+
+
+

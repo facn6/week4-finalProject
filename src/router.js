@@ -9,6 +9,9 @@ const router = (request, response) => {
     else if(url.indexOf('.') !== -1){
         handlers.handlePublic(request,response);
     }
+    else if(url === '/rgb'){
+        handlers.handleJsonFile(response);
+    }
     else{
        handlers.handleNotFound(response);
         }
