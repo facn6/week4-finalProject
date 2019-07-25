@@ -8,9 +8,14 @@ const port = process.env.PORT;
 
 const server = http.createServer(router);
 
-server.listen(port);
-
-
-console.log('server running on: http://' + host + ':' + port);
+server.listen(port, function (error){
+    if(error)
+    {
+        console.log("ERROR ,CANT RUN THE SERVER");
+    }
+    else{
+    console.log('server running on: http://' + host + ':' + port);
+    }
+});
 
 module.exports = server;
