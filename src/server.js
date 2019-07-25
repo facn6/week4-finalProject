@@ -18,4 +18,3 @@ server.listen(port, function (error){
     }
 });
 
-module.exports = server;
