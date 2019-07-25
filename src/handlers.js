@@ -2,7 +2,6 @@ const fs = require("fs");
 const path =require("path");
 const rgb = require('./rgb.json');
 
-
 const handlerHomeRoute = (request,response)=>{
     const filepath = path.join(__dirname, '..' , 'public' , 'index.html');
     fs.readFile(filepath, (error,file)=>{
@@ -71,9 +70,9 @@ const handlePublic = (request,response)=>{
 }
 
 
-const handleJsonFile = (res)=>{
-    res.writeHead(200, {'content-type': 'application/json'});
-    res.end(JSON.stringify(rgb));
+const handleJsonFile = (response)=>{
+    response.writeHead(200, {'content-type': 'application/json'});
+    response.end(JSON.stringify(rgb));
 }
 const handleNotFound = (response)=>
 {
