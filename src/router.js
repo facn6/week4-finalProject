@@ -11,6 +11,9 @@ const router = (request, response) => {
     }
     else if(url === '/rgb'){
         handlers.handleJsonFile(response);
+    }else if(url === '/?'){
+        request.url === "/";
+        handlers.handlerHomeRoute(request,response);
     }
     else{
        handlers.handleNotFound(response);
