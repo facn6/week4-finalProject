@@ -61,6 +61,7 @@ fetch('/rgb').then ((res)=>{
       }
       else
       {
+        document.getElementById("input_error").innerHTML = '';
         document.getElementById("result").style.background= 'rgb' +backgroundRGBColor[findRGB(document.getElementById("myInput").value)];
       }
     });
