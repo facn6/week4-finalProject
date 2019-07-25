@@ -47,12 +47,6 @@ const handlePublic = (request,response)=>{
             json: 'application/json'
         }
 
-         if(extention === 'json'){
-            filepath = path.join(__dirname , '..', url);
-         }
-         else{
-        filepath = path.join(__dirname , '..','public' , url);
-        }
         const filepath = path.join(__dirname , '..','public' , url);
         fs.readFile(filepath ,(error,file)=>{
             if(error)
